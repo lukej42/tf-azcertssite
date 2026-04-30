@@ -1,6 +1,6 @@
 terraform {
     backend "azurerm" {
-    resource_group_name = "lg-website"  # Replace with your resource group name
+    resource_group_name = "terraform-deploy"  # Replace with your resource group name
     storage_account_name = "terraformsflg"  # Replace with your storage account name
     container_name = "tf-azcertssite"  # Replace with your desired container name
     key = "terraform.tfstate"  # Optional: Specify the filename within the container (defaults to 'terraform.tfstate')
@@ -8,7 +8,7 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = ">= 3.81.0"
+      version = "~> 4.67"
     }
   }
 }
