@@ -33,7 +33,7 @@ variables:
     envName: ${{ parameters.environment }}
 
   tfVars: '-var-file=environments/$(envName)/terraform.tfvars'
-  extraVars: '-var="subscription_id=$(SUB_ID)"'
+  extraVars: '-var="subscription=$(SUB_ID)"'
 
 pool:
   vmImage: $(vmImageName)
@@ -56,7 +56,7 @@ stages:
         backendServiceArm: $(azureServiceConnection)
         backendAzureRmResourceGroupName: 'terraform-deploy'
         backendAzureRmStorageAccountName: 'terraformsflg'
-        backendAzureRmContainerName: 'tf-aks-build'
+        backendAzureRmContainerName: 'tf-azcertssite'
         backendAzureRmKey: '$(envName).terraform.tfstate' 
         backendAzureRmUseAzureAd: true
 
